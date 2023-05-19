@@ -6,7 +6,11 @@ class SubjectProvider extends ChangeNotifier{
   List<NotesModel> get notes => _notes;
 
   addSubjct(String subject){
-    _notes.add(subject as NotesModel);
+    _notes.add(NotesModel(subject: subject));
+    notifyListeners();
+  }
+  deleteSubject(int index){
+    _notes.removeAt(index);
     notifyListeners();
   }
 }
